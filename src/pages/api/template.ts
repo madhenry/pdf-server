@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method !== 'GET' || !req.query.file.length) throw new Error('Must provide Figma file id')
     const file = await getFigmaFile(req.query.file as string)
     const onlyFields = req.query.onlyFields ?? false
-    const textFields = file?.shortcuts?.texts.filter(({ parentId }) => parentId !== '0:1').map(({ name, characters }) => ({ name, characters }))
+    const textFields = file?.shortcuts?.texts.filter(({ parentId }: any) => parentId !== '0:1').map(({ name, characters }) => ({ name, characters }))
     res.status(200).json(onlyFields ? textFields : file)
     analytics.track({
       event: 'Figma Fields Query',

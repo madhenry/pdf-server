@@ -19,14 +19,14 @@ const Preview = () => {
   
   useEffect(() => {
     if (templateFile) {
-      const defaultTexts = templateFile?.shortcuts?.texts?.filter(({ parentId }) => parentId !== '0:1').map(({ name, characters }) => ({ name, characters })).reduce((all: Object, { name, characters }) => ({ ...all, [name]: characters }), {})
+      const defaultTexts = templateFile?.shortcuts?.texts?.filter(({ parentId }: { parentId: string }) => parentId !== '0:1').map(({ name, characters }: { name: string, characters: string }) => ({ name, characters })).reduce((all: Object, { name, characters }: { name: string, characters: string }) => ({ ...all, [name]: characters }), {})
       setTexts(defaultTexts)
       setTemplate(templateFile)
     }
   }, [templateFile])
 
   return template ? (
-    <Previewer pages={template.shortcuts?.pages} data={texts} style={{ width: '100%', height: '100%' }} />
+    <Previewer pages={template.shortcuts?.pages} data={texts} />
   ) : null
 }
 

@@ -1,9 +1,6 @@
 import {
-  Text,
   Flex,
-  Input,
   Box,
-  Stack
 } from '@chakra-ui/react'
 import { DarkModeSwitch } from 'src/components/DarkModeSwitch'
 import { EditorProvider } from 'src/components/EditorProvider'

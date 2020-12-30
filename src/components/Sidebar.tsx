@@ -5,7 +5,6 @@ import {
   HStack,
   InputGroup,
   InputLeftAddon,
-  Code,
   IconButton,
   Select,
   Spacer,
@@ -20,7 +19,7 @@ const Sidebar = () => {
   const { file, setFile, texts, setTexts } = useEditor()
   const { isValidating, error, data: availableTexts } = useSWR(file && `/api/template?onlyFields=1&file=${file}`, { dedupingInterval: 30000 })
 
-  const onFileEnter = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onFileEnter = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
     const input = event.target.value
     if (input.length) {
       const fileId = (input.includes('/file/') ? input.split('/file/')[1].split('/')[0] : input)
@@ -31,7 +30,7 @@ const Sidebar = () => {
     }
   }
 
-  const onTextUpdate = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+  const onTextUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value: input, name } = event.target
     setTexts({ ...texts, [name]: input })
   }
@@ -63,9 +62,6 @@ const Sidebar = () => {
         </InputGroup>
       ))}
       {isValidating && !error && !availableTexts && <Skeleton />}
-      {/* <Code>
-        {texts && JSON.stringify(texts)}
-      </Code> */}
     </Stack>
   )
 }

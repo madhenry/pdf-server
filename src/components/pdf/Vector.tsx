@@ -21,7 +21,7 @@ export const Vector: FC<{ vector: VectorType, debug: any }> = ({ vector, debug }
       }
       debug={debug}
       paint={painter => {
-        vector.fillGeometry.map(({ path }) =>
+        vector?.fillGeometry?.map(({ path }) =>
           painter
             .translate(padding, padding)
             .path(path)
@@ -29,7 +29,7 @@ export const Vector: FC<{ vector: VectorType, debug: any }> = ({ vector, debug }
             .fillOpacity(vector.fills[0].color?.a)
             .fill()
         )
-        vector.strokeGeometry.map(({ path }) =>
+        vector?.strokeGeometry?.map(({ path }) =>
           painter
             .translate(padding, padding)
             .lineJoin('miter')
