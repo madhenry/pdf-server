@@ -1,0 +1,22 @@
+spec:
+  name: pdf-server
+  services:
+  - build_command: yarn build
+    environment_slug: node-js
+    envs:
+    - key: FIGMA_TOKEN
+      scope: RUN_AND_BUILD_TIME
+      type: SECRET
+      value: "your_figma_token"
+    - key: NEXT_PUBLIC_ALLOWED_FILES
+      scope: RUN_AND_BUILD_TIME
+      type: GENERAL
+      value: ""
+    github:
+      branch: main
+      repo: madhenry/pdf-server
+    http_port: 8080
+    name: web
+    routes:
+    - path: /
+    run_command: yarn start-do
