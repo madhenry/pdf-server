@@ -27,6 +27,7 @@
     "@emotion/react": "11.1.1",
     "@emotion/styled": "11.0.0",
     "@react-pdf/renderer": "^1.6.12",
+    "@segment/snippet": "^4.13.1",
     "@types/analytics-node": "^3.1.4",
     "@types/color": "^3.0.1",
     "@types/uuid": "^8.3.0",
