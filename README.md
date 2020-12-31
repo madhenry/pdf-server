@@ -1,6 +1,7 @@
 # PDF Server
 
 This little next.js app lets you stream/download text and vector based Figma templates with your own content.
+[Demo](https://pdf.blooob.co)
 
 ## Usage
 
@@ -13,6 +14,16 @@ This little next.js app lets you stream/download text and vector based Figma tem
 3. Deploy as a server-side app to DigitalOcean/Vercel etc
 
 [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/madhenry/pdf-server/tree/main&refcode=5fc6d2f5bf61)
+
+Use it through the frontend or via /api/PDF endpoint using query string variables or POST vars.
+
+API endpoint parameters (don't use ase layer names in Figma):
+
+file - the Figma file ID
+fileName - when defined the api forces a download with the specified file name
+debug - when defined, react-pdf debug mode is enabled
+
+Everything else defined is used to replace contents with matching figma layer names.
 
 ## ENV
 
