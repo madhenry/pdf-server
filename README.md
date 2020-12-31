@@ -17,10 +17,12 @@ This little next.js app lets you stream/download text and vector based Figma tem
 
 Use it through the frontend or via /api/PDF endpoint using query string variables or POST vars.
 
-API endpoint parameters (don't use ase layer names in Figma):
+## API endpoint parameters (don't use as layer names in Figma):
 
 file - the Figma file ID
+
 fileName - when defined the api forces a download with the specified file name
+
 debug - when defined, react-pdf debug mode is enabled
 
 Everything else defined is used to replace contents with matching figma layer names.
