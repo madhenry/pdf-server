@@ -12,7 +12,7 @@ This little next.js app lets you stream/download text and vector based Figma tem
 
 3. Deploy as a server-side app to DigitalOcean/Vercel etc
 
-[![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/madhenry/pdf-server/tree/main)
+[![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/madhenry/pdf-server/tree/main&refcode=5fc6d2f5bf61)
 
 ## ENV
 
