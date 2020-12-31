@@ -1,11 +1,11 @@
 import { FC, createContext, useContext, useState } from 'react'
-import Figma from 'figma-js'
-import { NodeWithShortcuts } from 'figma-transformer'
+import { ProcessedFile } from 'figma-transformer'
+import { allowedFiles, DEFAULT_FILE } from 'utils/getFigmaFile'
 
-type EditorValues = {
-  file: string
-  texts: Object
-  template: NodeWithShortcuts<Figma.Canvas>
+export type EditorValues = {
+  file?: string
+  texts: { [key: string]: string }
+  template?: ProcessedFile
   setFile: Function
   setTexts: Function
   setTemplate: Function
@@ -14,16 +14,16 @@ type EditorValues = {
 const Context = createContext<EditorValues>({
   file: '',
   texts: {},
-  template: {} as NodeWithShortcuts<Figma.Canvas>,
+  template: undefined,
   setFile: () => null,
   setTexts: () => null,
   setTemplate: () => null,
 })
 
 export const EditorProvider: FC<any> = ({ children }) => {
-  const [fileId, setFileId] = useState(`w4qFtzyCX2fYT3x6CQDFQF`)
+  const [fileId, setFileId] = useState(allowedFiles.length ? allowedFiles[0] : DEFAULT_FILE)
   const [texts, setTexts] = useState({})
-  const [template, setTemplate] = useState({} as NodeWithShortcuts<Figma.Canvas>)
+  const [template, setTemplate] = useState<ProcessedFile>()
   return (
     <Context.Provider value={{
       file: fileId,
@@ -31,7 +31,7 @@ export const EditorProvider: FC<any> = ({ children }) => {
       template,
       setFile: (fileId: string) => setFileId(fileId),
       setTexts: (texts: Object) => setTexts(texts),
-      setTemplate: (template: NodeWithShortcuts<Figma.Canvas>) => setTemplate(template),
+      setTemplate: (template: ProcessedFile) => setTemplate(template),
     }}>
       {children}
     </Context.Provider>

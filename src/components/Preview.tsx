@@ -14,7 +14,7 @@ const Previewer = dynamic(
 
 const Preview = () => {
   const { file, texts, setTexts, template, setTemplate } = useEditor()
-  const { data: templateFile } = useSWR(file && `/api/template?file=${file}`, { dedupingInterval: 30000 })
+  const { data: templateFile } = useSWR(file ? `/api/template?file=${file}` : null, { dedupingInterval: 30000 })
   // const vars = Object.keys(texts).map(key => `${key}=${texts[key]}`)
   
   useEffect(() => {
