@@ -1,5 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 import { ColorModeScript } from '@chakra-ui/react'
+// @ts-ignore
 import * as snippet from '@segment/snippet'
 
 const {
